@@ -15,7 +15,7 @@ class ProvisioningServiceStack(core.Stack):
         lambda_fn = _lambda.Function(
             self,
             'provisioningServiceHandler',
-            runtime=_lambda.Runtime.PYTHON_3_7,
+            runtime=_lambda.Runtime.PYTHON_3_8,
             timeout=Duration.seconds(30),
             code=_lambda.Code.asset('services/provisioning_service/lambdas/provisioningapi'),
             handler='app.on_request') 
@@ -23,9 +23,9 @@ class ProvisioningServiceStack(core.Stack):
         lambda_fn_jitr = _lambda.Function(
             self,
             'jitrServiceHandler',
-            runtime=_lambda.Runtime.PYTHON_3_7,
+            runtime=_lambda.Runtime.PYTHON_3_8,
             timeout=Duration.seconds(30),
-            code=_lambda.Code.asset('services/provisioning_service/lambdas/provisioningapi'),
+            code=_lambda.Code.asset('services/provisioning_service/lambdas/jitrhandler'),
             handler='app.on_jitr_request_handler') 
 
         self.createJitrResources(lambda_fn_jitr.function_arn)
@@ -52,5 +52,5 @@ class ProvisioningServiceStack(core.Stack):
                                       topic_rule_payload=iot.CfnTopicRule.TopicRulePayloadProperty(actions=[iot.CfnTopicRule.ActionProperty(lambda_=iot.CfnTopicRule.LambdaActionProperty(function_arn=handler_function_arn))],
                                                                                                    sql="SELECT * FROM '$aws/events/thing/+/created'",
                                                                                                    aws_iot_sql_version="2016-03-23",
-                                                                                                   rule_disabled=False), rule_name="loraWANTriggerRule")
+                                                                                                   rule_disabled=False), rule_name="jitrTriggerRule")
 

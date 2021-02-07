@@ -13,7 +13,7 @@ class DeviceManagementServiceStack(core.Stack):
         lambda_fn = _lambda.Function(
             self,
             'deviceManagementServiceHandler',
-            runtime=_lambda.Runtime.PYTHON_3_7,
+            runtime=_lambda.Runtime.PYTHON_3_8,
             timeout=Duration.seconds(30),
             code=_lambda.Code.asset('services/device_management_service/lambdas/devicemanagementapi'),
             handler='app.on_request')  
