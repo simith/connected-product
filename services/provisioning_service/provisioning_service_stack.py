@@ -16,7 +16,15 @@ class ProvisioningServiceStack(core.Stack):
             runtime=_lambda.Runtime.PYTHON_3_7,
             timeout=Duration.seconds(30),
             code=_lambda.Code.asset('services/provisioning_service/lambdas/provisioningapi'),
-            handler='app.on_request')  
+            handler='app.on_request') 
+
+        lambda_fn_jitr = _lambda.Function(
+            self,
+            'provisioningServiceHandler',
+            runtime=_lambda.Runtime.PYTHON_3_7,
+            timeout=Duration.seconds(30),
+            code=_lambda.Code.asset('services/provisioning_service/lambdas/provisioningapi'),
+            handler='app.on_jitr_request_handler') 
 
         # The code that defines your stack goes here
         utils = CPUtils()
