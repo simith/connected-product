@@ -1,0 +1,54 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-stream4allreact-dev-91536-authRole",
+			"UnauthRoleArn": "arn:aws:iam::487872372586:role/amplify-stream4allreact-dev-91536-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::487872372586:role/amplify-stream4allreact-dev-91536-authRole",
+			"Region": "ap-southeast-1",
+			"DeploymentBucketName": "amplify-stream4allreact-dev-91536-deployment",
+			"UnauthRoleName": "amplify-stream4allreact-dev-91536-unauthRole",
+			"StackName": "amplify-stream4allreact-dev-91536",
+			"StackId": "arn:aws:cloudformation:ap-southeast-1:487872372586:stack/amplify-stream4allreact-dev-91536/260b38d0-e995-11ea-be75-02b1023f6966",
+			"AmplifyAppId": "d2ts52zi254ub1"
+		}
+	},
+	"auth": {
+		"stream4allreacteba1b6a0": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false,
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-stream4allreact-dev-91536-deployment/amplify-cfn-templates/auth/stream4allreacteba1b6a0-cloudformation-template.yml",
+				"logicalId": "authstream4allreacteba1b6a0"
+			},
+			"lastPushTimeStamp": "2020-09-02T08:39:28.181Z",
+			"output": {
+				"AppClientSecret": "1ma1d1muf8aata2agdsc8ipgrfv9skaur8h8nsj5urgftogl1b4b",
+				"UserPoolId": "ap-southeast-1_IhEdc0w8P",
+				"AppClientIDWeb": "64594cikhvvdbpqd34jkkv310e",
+				"AppClientID": "7qru958ea5eksbtjnt2pkn3cis",
+				"IdentityPoolId": "ap-southeast-1:53c77126-08d0-438c-8a58-e5d3dc2ec1f0",
+				"IdentityPoolName": "stream4allreacteba1b6a0_identitypool_eba1b6a0__dev",
+				"UserPoolName": "stream4allreacteba1b6a0_userpool_eba1b6a0"
+			},
+			"lastPushDirHash": "iwDe8ETtPCSxt56OhocQjarcSIY="
+		}
+	},
+	"storage": {
+		"storage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-stream4allreact-dev-91536-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storagestorage"
+			},
+			"lastPushTimeStamp": "2020-09-02T08:39:28.184Z",
+			"output": {
+				"BucketName": "stream4allreactcf9382ca2c004c319bf2f96699a8574691536-dev",
+				"Region": "ap-southeast-1"
+			},
+			"lastPushDirHash": "udXac4ugTzkbxI/S9JpOMYgtBH0="
+		}
+	}
+}
