@@ -22,7 +22,7 @@ class ProvisioningServiceStack(core.Stack):
 
         lambda_fn_jitr = _lambda.Function(
             self,
-            'provisioningServiceHandler',
+            'jitrServiceHandler',
             runtime=_lambda.Runtime.PYTHON_3_7,
             timeout=Duration.seconds(30),
             code=_lambda.Code.asset('services/provisioning_service/lambdas/provisioningapi'),
@@ -48,7 +48,7 @@ class ProvisioningServiceStack(core.Stack):
             capture the IoT Rule and set the Lambda action
         '''
         topic_rule = iot.CfnTopicRule(self,
-                                      id="lorawanRegistrationTrigger",
+                                      id="justInTimeRegistrationTrigger",
                                       topic_rule_payload=iot.CfnTopicRule.TopicRulePayloadProperty(actions=[iot.CfnTopicRule.ActionProperty(lambda_=iot.CfnTopicRule.LambdaActionProperty(function_arn=handler_function_arn))],
                                                                                                    sql="SELECT * FROM '$aws/events/thing/+/created'",
                                                                                                    aws_iot_sql_version="2016-03-23",
